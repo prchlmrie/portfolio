@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,29 +11,55 @@ body {
     font-family: Arial, sans-serif;
     background-color: #000;
     color: #fff;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    overflow-y: auto;
-    height: 100vh;
-    min-height: 100vh;
+    line-height: 1.6;
 }
 
-/* Navbar Section */
-.navbar {
-    background-color: #000000;
-    padding: 10px 0; 
-    position: fixed; 
-    top: 0;
-    width: 100%; 
-    z-index: 1000; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
-}
-
-.navbar-container {
+.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    font-size: 50px;
+}
+
+.btn {
+    background-color: #f4b400;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #1a3c8d; /* Ravenclaw Blue */
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1a3c8d; /* Ravenclaw Blue */
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    margin-right: 10px;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #000;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,16 +67,11 @@ body {
 
 .logo img {
     max-height: 50px;
-    width: auto;
-    display: block;
-    margin: 0;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
 }
 
 .nav-links li {
@@ -55,368 +79,196 @@ body {
 }
 
 .nav-links a {
-    color: #fff; 
+    color: #fff;
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #999; 
-}
-
-
-.logo img {
-    max-height: 40px; 
-    width: auto; 
-    display: block; 
-    margin: 0; 
+    color: #999;
 }
 
 .music-control {
     display: flex;
     align-items: center;
     cursor: pointer;
-    position: relative;
 }
 
 .music-logo {
-    width: 30px; 
+    width: 30px;
     height: 30px;
-    margin-right: 10px; 
     transition: transform 0.3s ease;
 }
 
 .music-control:hover .music-logo {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
-audio {
-    display: none; 
+/* Header Styles */
+.header-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 5px 0;
-    transition: 0.3s;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.9);
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 10px 0;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-}
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-
-/* About Section Wrapper */
-.about-wrapper {
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    background-image: url('images/');
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.header-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+}
+
+.header-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.header-title {
+    font-size: 3.8rem;
+    font-family: 'Harry Potter';
+    color: #fff;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-subtitle {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* About Section Styles */
+.about-section {
+    padding: 100px 0;
+    background-image: url('images/your-background-image.jpg');
     background-size: cover;
     background-position: center;
     background-color: rgba(0, 0, 0, 0.7);
+    padding-bottom: 0;
     background-blend-mode: overlay;
+    color: #fff; /* Ensures readability against the dark background */
 }
 
-/* About Container */
-.about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 20px 40px 20px;
+.about-section .container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    z-index: 10;
+    gap: 30px; /* Adds spacing between the sections */
 }
 
-/* About content */
 .about-content {
     flex: 1;
     min-width: 300px;
     max-width: 600px;
-    margin-right: 40px;
-    color: #fff;
+    margin-right: 20px; /* Smaller margin for balanced layout */
 }
 
-h1 {
+.about-content h2 {
+    font-size: 50px;
     font-family: 'Poppins', sans-serif;
-    font-size: 48px;
     margin-bottom: 20px;
-    line-height: 1.2;
 }
 
-.name {
-    font-weight: 600;
-    color: #21a8d5;
+.highlight {
+    color: #1a3c8d; /* Ravenclaw Blue */
 }
 
 .intro {
     font-size: 18px;
-    line-height: 1.5;
-    color: #999;
+    line-height: 1.8; /* Improves readability */
     margin-bottom: 30px;
 }
 
-.autobiography-button {
-    background-color: #fff;
-    color: #000;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.skills-container {
+    margin-top: 20px;
+}
+
+.skills-container h1 {
+    font-size: 1.8rem;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 15px;
+    color: #1a3c8d; /* Matches Ravenclaw theme */
+}
+
+.skills-grid {
     display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-tag {
+    background-color: #1a3c8d; /* Ravenclaw Blue */
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-flex;
     align-items: center;
-    border-radius: 5px;
-    width: 140px;
-    text-decoration: none; /* Removes underline */
-    transition: background-color 0.3s;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.autobiography-button:hover {
-    background-color: #e6e6e6;
-}
-
-/* Profile image container */
 .profile-container {
     position: relative;
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
+    max-width: 450px;
+    align-self: flex-start; /* Aligns the profile to the top of the container */
 }
+
 
 .profile-image {
     width: 100%;
     height: auto;
     border-radius: 20px;
-    border: 1px solid #333;
+    border: 2px solid #1a3c8d; /* Ravenclaw-themed border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* Ravenclaw logo */
 .ravenclaw-logo {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: #000;
-    border: 1px solid #333;
+    top: 10px;
+    right: 10px;
+    background-color: #1a3c8d; /* Matches Ravenclaw colors */
+    border: 2px solid #333;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 .logo-image {
-    width: 80px; 
+    width: 40px;
     height: auto;
 }
 
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        padding-top: 100px;
-    }
 
-    .about-content {
-        margin-right: 0;
-        margin-bottom: 40px;
-    }
-
-    .profile-container {
-        width: 100%;
-    }
-}
-
-
-/*Stars thingy*/
-
-.stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.stars span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 4px;
-    height: 4px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(255,255,255,0.1),
-    0 0 0 8px rgba(255,255,255,0.1),
-    0 0 20px rgba(255,255,255,1);
-    animation: animate 3s linear infinite;
-}
-
-.stars span::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 300px;
-    height: 1px;
-    background: linear-gradient(90deg,#fff,transparent);
-}
-
-@keyframes animate {
-    0% {
-        transform: rotate(315deg) translateX(0);
-        opacity: 1;
-    }
-    70% {
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(315deg) translateX(-1000px);
-        opacity: 0;
-    }
-}
-
-.stars span:nth-child(1) {
-    top: 0;
-    right: 0;
-    left: initial;
-    animation-delay: 0;
-    animation-duration: 1s;
-}
-
-.stars span:nth-child(2) {
-    top: 0;
-    right: 80px;
-    left: initial;
-    animation-delay: 0.2s;
-    animation-duration: 3s;
-}
-
-.stars span:nth-child(3) {
-    top: 80px;
-    right: 0px;
-    left: initial;
-    animation-delay: 0.4s;
-    animation-duration: 2s;
-}
-
-.stars span:nth-child(4) {
-    top: 0;
-    right: 180px;
-    left: initial;
-    animation-delay: 0.6s;
-    animation-duration: 1.5s;
-}
-
-.stars span:nth-child(5) {
-    top: 0;
-    right: 400px;
-    left: initial;
-    animation-delay: 0.8s;
-    animation-duration: 2.5s;
-}
-
-.stars span:nth-child(6) {
-    top: 0;
-    right: 600px;
-    left: initial;
-    animation-delay: 1s;
-    animation-duration: 3s;
-}
-
-.stars span:nth-child(7) {
-    top: 300px;
-    right: 0px;
-    left: initial;
-    animation-delay: 1.2s;
-    animation-duration: 1.75s;
-}
-
-.stars span:nth-child(8) {
-    top: 0;
-    right: 700px;
-    left: initial;
-    animation-delay: 1.4s;
-    animation-duration: 1.25s;
-}
-
-.stars span:nth-child(9) {
-    top: 0;
-    right: 1000px;
-    left: initial;
-    animation-delay: 0.75s;
-    animation-duration: 2.25s;
-}
-
-.stars span:nth-child(10) {
-    top: 0;
-    right: 450px;
-    left: initial;
-    animation-delay: 2.75s;
-    animation-duration: 2.25s;
-}
-
-
-/*Project Section*/
-
-.projects {
-    background-color: #000; 
-    min-height: 100vh;
-    padding: 80px 20px;
-    position: relative;
-    z-index: 20;
-}
-
-.projects-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.projects h2 {
-    font-size: 48px;
-    color: #fff; 
-    text-align: center;
-    margin-bottom: 60px;
-    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.2); 
+/* Projects Section Styles */
+.projects-section {
+    padding: 80px 0;
 }
 
 .projects-grid {
@@ -426,22 +278,29 @@ h1 {
 }
 
 .project-card {
-    background-color: rgba(255, 255, 255, 0.05); 
+    background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 24px;
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2); 
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+.project-card img.project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 16px;
 }
 
 .project-card h3 {
     font-size: 24px;
-    color: #fff;
     margin-bottom: 16px;
 }
 
@@ -449,7 +308,6 @@ h1 {
     font-size: 16px;
     color: #ccc;
     margin-bottom: 24px;
-    text-align: center;
 }
 
 .project-technologies {
@@ -461,8 +319,8 @@ h1 {
 
 .project-technologies span {
     font-size: 14px;
-    color: #4ade80; 
-    border: 1px solid #4ade80;
+    color: #1a3c8d; /* Ravenclaw Blue */
+    border: 1px solid #1a3c8d; /* Ravenclaw Blue */
     padding: 5px 10px;
     border-radius: 4px;
 }
@@ -474,127 +332,261 @@ h1 {
 }
 
 .project-links a {
-    color: #4ade80;
+    color: #1a3c8d; /* Ravenclaw Blue */
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .project-links a:hover {
     color: #fff;
-    text-shadow: 0px 0px 8px #4ade80; 
-}
-
-@media (max-width: 768px) {
-    .projects h2 {
-        font-size: 36px;
-    }
-
-    .project-card {
-        padding: 20px;
-    }
-
-    .project-card h3 {
-        font-size: 20px;
-    }
-
-    .project-card p {
-        font-size: 14px;
-    }
+    text-shadow: 0px 0px 8px #1a3c8d; /* Ravenclaw Blue */
 }
 
 
-/* Header Section */
-
-.header-section {
-    min-height: 100vh;
-    background-image: url('images/castle.mp4');
-    background-size: cover;
-    background-position: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    background-blend-mode: overlay;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
+/* Content inside the intro section */
+.intro-content {
     position: relative;
-    z-index: 10;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 100px;
 }
 
-.header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    z-index: 1; 
-    color: white; 
+.intro-title {
+    font-size: 3rem;
+    font-family: 'Harry Potter';
+    font-weight: 700;
+    margin-bottom: 0.5rem;
 }
 
-.background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; 
-}
-
-.header-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); 
-    z-index: 0;
-}
-
-.header-title {
-    font-family: 'Harry Potter', serif; 
-    font-size: 4rem;
-    color: #ffffff;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.header-subtitle {
+.intro-subtitle {
     font-size: 1.5rem;
-    color: #ffffff;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+    font-weight: 300;
 }
 
-.header-button {
-    display: inline-flex;
-    align-items: center;
-    padding: 1rem 2rem;
+
+
+/* Certificates Section */
+.certificates-section {
+    background-color: #000; /* Matches the About section */
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.certificates-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.certificates-container h1 {
+    font-size: 1.8rem; /* Matches the heading style of "My Skills" and "Education" */
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    color: #1a3c8d; /* Ravenclaw-inspired accent */
+}
+
+.certificates-container .intro {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.certificate-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Certificate Card */
+.certificate-card {
+    position: relative;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(26, 60, 141, 0.3); /* Ravenclaw Blue */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.certificate-card:hover {
+    transform: scale(0.5); /* Slight zoom-in effect */
+    box-shadow: 0 6px 16px rgba(26, 60, 141, 0.6); /* Enhanced shadow on hover */
+    z-index: 5; /* Bring the hovered card to the front */
+}
+
+.certificate-image-container {
+    position: relative;
+}
+
+.certificate-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.certificate-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark overlay */
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.certificate-card:hover{
+    opacity: 1;
+    transform: scale(2.2); /* Slight zoom-in for the image */
+}
+
+.certificate-title {
+    font-size: 1.2rem;
+    color: #1a3c8d; /* Ravenclaw Blue */
+    margin-bottom: 8px;
+}
+
+.certificate-card p {
     font-size: 1rem;
-    color: #ffffff;
-    background-color: transparent;
-    border: 2px solid #4ade80;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
+    color: #ccc;
 }
 
-.header-button:hover {
-    background-color: #4ade80;
-    transform: translateY(-2px);
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .certificate-grid {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.button-icon {
-    margin-right: 0.5rem;
+    .certificate-card {
+        width: 100%;
+        max-width: 350px;
+    }
 }
 
 
-.container {
-    padding-top: 2rem; 
+/* Contact Section Styles */
+.contact-section {
+    height: 100vh; /* Full screen height */
+    background-color: #000; /* Ravenclaw-inspired dark theme */
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* Allows stacking of footer and content */
+    align-items: center;
+    justify-content: space-between; /* Spaces out the footer and contact content */
+    text-align: center;
+    padding: 0 20px; /* Small padding for mobile screens */
+    overflow: hidden; /* Prevents content overflow */
 }
 
-/* Media Queries */
+.contact-container {
+    max-width: 900px;
+    width: 100%;
+    margin: auto; /* Ensures it's centered within the contact section */
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Individual Contact Cards */
+.contact-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    width: 200px; /* Consistent card size */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+.contact-image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 16px;
+}
+
+.contact-card p {
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.contact-links a {
+    color: #1a3c8d; /* Ravenclaw Blue */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: #fff;
+    text-shadow: 0px 0px 8px #1a3c8d; /* Ravenclaw Blue */
+}
+
+.contact-links svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.contact-links a:hover svg {
+    transform: scale(1.2); /* Slight zoom on hover */
+}
+
+
+/* Footer Section Styles */
+.footer-section {
+    background-color: transparent; /* Matches the contact section */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 2px solid #1a3c8d; /* Subtle Ravenclaw Blue separator */
+    font-family: 'Poppins', sans-serif;
+    width: 100%; /* Ensures it spans the full width */
+}
+
+.footer-credit {
+    font-size: 0.9rem;
+    color: #999;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-link {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+
+
+/* Responsive Styles */
 @media (max-width: 768px) {
     .header-title {
         font-size: 2.5rem;
@@ -604,13 +596,28 @@ h1 {
         font-size: 1.2rem;
     }
 
-    .header-button {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
+    .about-section .container {
+        flex-direction: column;
+    }
+
+    .about-content {
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .profile-container {
+        width: 100%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 }
 
-/* custom Harry Potter font */
 @font-face {
     font-family: 'Harry Potter';
     src: url('path-to-harry-potter-font.woff2') format('woff2');
