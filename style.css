@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-/* Global Styles */
+/* main styles */
 * {
     margin: 0;
     padding: 0;
@@ -32,7 +32,7 @@ h1, h2 {
     align-items: center;
     padding: 10px 20px;
     background-color: transparent;
-    border: 2px solid #1a3c8d; /* Ravenclaw Blue */
+    border: 2px solid #1a3c8d;
     color: #fff;
     text-decoration: none;
     font-size: 16px;
@@ -40,7 +40,7 @@ h1, h2 {
 }
 
 .btn:hover {
-    background-color: #1a3c8d; /* Ravenclaw Blue */
+    background-color: #1a3c8d; 
     transform: translateY(-2px);
 }
 
@@ -105,7 +105,7 @@ h1, h2 {
     transform: scale(1.1);
 }
 
-/* Header Styles */
+/* header */
 .header-section {
     min-height: 100vh;
     display: flex;
@@ -157,7 +157,7 @@ h1, h2 {
     opacity: 0.9;
 }
 
-/* About Section Styles */
+/* About Section */
 .about-section {
     padding: 100px 0;
     background-image: url('images/your-background-image.jpg');
@@ -166,7 +166,7 @@ h1, h2 {
     background-color: rgba(0, 0, 0, 0.7);
     padding-bottom: 0;
     background-blend-mode: overlay;
-    color: #fff; /* Ensures readability against the dark background */
+    color: #fff; 
 }
 
 .about-section .container {
@@ -174,14 +174,14 @@ h1, h2 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 30px; /* Adds spacing between the sections */
+    gap: 30px; 
 }
 
 .about-content {
     flex: 1;
     min-width: 300px;
     max-width: 600px;
-    margin-right: 20px; /* Smaller margin for balanced layout */
+    margin-right: 20px; 
 }
 
 .about-content h2 {
@@ -191,12 +191,12 @@ h1, h2 {
 }
 
 .highlight {
-    color: #1a3c8d; /* Ravenclaw Blue */
+    color: #1a3c8d; 
 }
 
 .intro {
     font-size: 18px;
-    line-height: 1.8; /* Improves readability */
+    line-height: 1.8;
     margin-bottom: 30px;
 }
 
@@ -208,7 +208,7 @@ h1, h2 {
     font-size: 1.8rem;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 15px;
-    color: #1a3c8d; /* Matches Ravenclaw theme */
+    color: #1a3c8d;
 }
 
 .skills-grid {
@@ -218,7 +218,7 @@ h1, h2 {
 }
 
 .skill-tag {
-    background-color: #1a3c8d; /* Ravenclaw Blue */
+    background-color: #1a3c8d;
     color: #fff;
     padding: 10px 16px;
     border-radius: 6px;
@@ -233,7 +233,7 @@ h1, h2 {
 .profile-container {
     position: relative;
     max-width: 450px;
-    align-self: flex-start; /* Aligns the profile to the top of the container */
+    align-self: flex-start; 
 }
 
 
@@ -241,7 +241,7 @@ h1, h2 {
     width: 100%;
     height: auto;
     border-radius: 20px;
-    border: 2px solid #1a3c8d; /* Ravenclaw-themed border */
+    border: 2px solid #1a3c8d;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
@@ -249,7 +249,7 @@ h1, h2 {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #1a3c8d; /* Matches Ravenclaw colors */
+    background-color: #1a3c8d;
     border: 2px solid #333;
     border-radius: 50%;
     width: 80px;
@@ -266,7 +266,7 @@ h1, h2 {
 }
 
 
-/* Projects Section Styles */
+/* projects */
 .projects-section {
     padding: 80px 0;
 }
@@ -319,8 +319,8 @@ h1, h2 {
 
 .project-technologies span {
     font-size: 14px;
-    color: #1a3c8d; /* Ravenclaw Blue */
-    border: 1px solid #1a3c8d; /* Ravenclaw Blue */
+    color: #1a3c8d;
+    border: 1px solid #1a3c8d; 
     padding: 5px 10px;
     border-radius: 4px;
 }
@@ -332,17 +332,16 @@ h1, h2 {
 }
 
 .project-links a {
-    color: #1a3c8d; /* Ravenclaw Blue */
+    color: #1a3c8d; 
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .project-links a:hover {
     color: #fff;
-    text-shadow: 0px 0px 8px #1a3c8d; /* Ravenclaw Blue */
+    text-shadow: 0px 0px 8px #1a3c8d; 
 }
 
 
-/* Content inside the intro section */
 .intro-content {
     position: relative;
     z-index: 2;
@@ -367,7 +366,7 @@ h1, h2 {
 
 /* Certificates Section */
 .certificates-section {
-    background-color: #000; /* Matches the About section */
+    background-color: #000; 
     color: #fff;
     padding: 50px 20px;
     text-align: center;
@@ -380,10 +379,10 @@ h1, h2 {
 }
 
 .certificates-container h1 {
-    font-size: 1.8rem; /* Matches the heading style of "My Skills" and "Education" */
+    font-size: 1.8rem; 
     font-family: 'Poppins', sans-serif;
     margin-bottom: 20px;
-    color: #1a3c8d; /* Ravenclaw-inspired accent */
+    color: #1a3c8d; 
 }
 
 .certificates-container .intro {
@@ -407,14 +406,14 @@ h1, h2 {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(26, 60, 141, 0.3); /* Ravenclaw Blue */
+    box-shadow: 0 4px 12px rgba(26, 60, 141, 0.3); 
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .certificate-card:hover {
-    transform: scale(0.5); /* Slight zoom-in effect */
-    box-shadow: 0 6px 16px rgba(26, 60, 141, 0.6); /* Enhanced shadow on hover */
-    z-index: 5; /* Bring the hovered card to the front */
+    transform: scale(0.5); 
+    box-shadow: 0 6px 16px rgba(26, 60, 141, 0.6); 
+    z-index: 5; 
 }
 
 .certificate-image-container {
@@ -433,7 +432,7 @@ h1, h2 {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark overlay */
+    background-color: rgba(0, 0, 0, 0.8); 
     color: #fff;
     padding: 15px;
     text-align: left;
@@ -444,12 +443,12 @@ h1, h2 {
 
 .certificate-card:hover{
     opacity: 1;
-    transform: scale(2.2); /* Slight zoom-in for the image */
+    transform: scale(2.2); 
 }
 
 .certificate-title {
     font-size: 1.2rem;
-    color: #1a3c8d; /* Ravenclaw Blue */
+    color: #1a3c8d; 
     margin-bottom: 8px;
 }
 
@@ -458,38 +457,26 @@ h1, h2 {
     color: #ccc;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .certificate-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .certificate-card {
-        width: 100%;
-        max-width: 350px;
-    }
-}
 
 
-/* Contact Section Styles */
+/* Contact */
 .contact-section {
-    height: 100vh; /* Full screen height */
-    background-color: #000; /* Ravenclaw-inspired dark theme */
+    height: 100vh; 
+    background-color: #000; 
     color: #fff;
     display: flex;
-    flex-direction: column; /* Allows stacking of footer and content */
+    flex-direction: column; 
     align-items: center;
-    justify-content: space-between; /* Spaces out the footer and contact content */
+    justify-content: space-between; 
     text-align: center;
-    padding: 0 20px; /* Small padding for mobile screens */
-    overflow: hidden; /* Prevents content overflow */
+    padding: 0 20px; 
+    overflow: hidden; 
 }
 
 .contact-container {
     max-width: 900px;
     width: 100%;
-    margin: auto; /* Ensures it's centered within the contact section */
+    margin: auto; 
 }
 
 .contact-grid {
@@ -499,7 +486,6 @@ h1, h2 {
     gap: 20px;
 }
 
-/* Individual Contact Cards */
 .contact-card {
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -507,7 +493,7 @@ h1, h2 {
     padding: 24px;
     backdrop-filter: blur(10px);
     text-align: center;
-    width: 200px; /* Consistent card size */
+    width: 200px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -534,13 +520,13 @@ h1, h2 {
 }
 
 .contact-links a {
-    color: #1a3c8d; /* Ravenclaw Blue */
+    color: #1a3c8d; 
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .contact-links a:hover {
     color: #fff;
-    text-shadow: 0px 0px 8px #1a3c8d; /* Ravenclaw Blue */
+    text-shadow: 0px 0px 8px #1a3c8d;
 }
 
 .contact-links svg {
@@ -550,19 +536,19 @@ h1, h2 {
 }
 
 .contact-links a:hover svg {
-    transform: scale(1.2); /* Slight zoom on hover */
+    transform: scale(1.2); 
 }
 
 
-/* Footer Section Styles */
+/* footer */
 .footer-section {
-    background-color: transparent; /* Matches the contact section */
+    background-color: transparent; 
     color: #fff;
     padding: 20px 0;
     text-align: center;
-    border-top: 2px solid #1a3c8d; /* Subtle Ravenclaw Blue separator */
+    border-top: 2px solid #1a3c8d; 
     font-family: 'Poppins', sans-serif;
-    width: 100%; /* Ensures it spans the full width */
+    width: 100%; 
 }
 
 .footer-credit {
@@ -571,22 +557,51 @@ h1, h2 {
     margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .contact-grid {
-        flex-direction: column;
-        align-items: center;
-    }
+/* splash screen */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; 
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    text-align: center;
+}
 
-    .social-link {
-        width: 100%;
-        max-width: 200px;
-    }
+.splash-content h1 {
+    font-family: 'Harry Potter', serif; 
+    font-size: 2rem;
+    margin-bottom: 5px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.splash-content p {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-top: -50px;
+}
+
+#hogwarts-letter {
+    max-width: 400px;
+    margin-top: -40px; 
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#hogwarts-letter:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
 }
 
 
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
     .header-title {
         font-size: 2.5rem;
@@ -615,6 +630,23 @@ h1, h2 {
 
     .menu-toggle {
         display: block;
+    }
+    .contact-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .social-link {
+        width: 100%;
+        max-width: 200px;
+    }
+    .certificate-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .certificate-card {
+        width: 100%;
+        max-width: 350px;
     }
 }
 
