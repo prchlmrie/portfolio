@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Projects Cube | Cheilou Marie Puro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="theme.css" rel="stylesheet"/>
+  <script src="theme.js"></script>
+  <script src="projects-data.js"></script>
+  <script src="projects-ui.js"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: transparent;
+      color: #111827;
+      overflow-x: hidden;
+      margin: 0;
+    }
+    .font-mono-label { font-family: 'JetBrains Mono', monospace; }
+
+    .cube-workspace {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      align-items: center;
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.5rem 0.25rem 1rem;
+      min-height: 30rem;
+    }
+
+    @media (min-width: 900px) {
+      .cube-workspace {
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
+        gap: 2.5rem;
+      }
+    }
+
+    .cube-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .panel-column {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    #energy-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 30;
+    }
+
+    .energy-line {
+      stroke: #f472b6;
+      stroke-width: 0.6;
+      fill: none;
+      filter: drop-shadow(0 0 4px rgba(244, 114, 182, 0.9));
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .line-bundle {
+      animation: holo-flicker 4s infinite linear, holo-shimmer 2s infinite ease-in-out;
+    }
+
+    @keyframes holo-flicker {
+      0%, 100% { opacity: 0.7; }
+      5% { opacity: 0.3; }
+      7% { opacity: 0.8; }
+      15% { opacity: 0.6; }
+      25% { opacity: 0.9; }
+      27% { opacity: 0.4; }
+      35% { opacity: 0.8; }
+      50% { opacity: 0.7; }
+      85% { opacity: 0.9; }
+      95% { opacity: 0.5; }
+    }
+
+    @keyframes holo-shimmer {
+      0%, 100% {
+        stroke-width: 0.6;
+        filter: drop-shadow(0 0 4px rgba(244, 114, 182, 0.8));
+      }
+      50% {
+        stroke-width: 1px;
+        filter: drop-shadow(0 0 8px rgba(236, 72, 153, 1));
+      }
+    }
+
+    .pulse-path {
+      stroke-dasharray: 10, 50;
+      animation: move-dash 1s linear infinite;
+    }
+
+    @keyframes move-dash {
+      to { stroke-dashoffset: -60; }
+    }
+
+    .scene {
+      width: min(72vw, 300px);
+      height: min(72vw, 300px);
+      perspective: 1200px;
+      touch-action: none;
+      cursor: grab;
+      position: relative;
+    }
+
+    .scene:active { cursor: grabbing; }
+
+    .cube {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(-20deg) rotateY(30deg);
+      will-change: transform;
+    }
+
+    .cube-face {
+      position: absolute;
+      width: min(72vw, 300px);
+      height: min(72vw, 300px);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 8px;
+      padding: 8px;
+      background: rgba(244, 114, 182, 0.06);
+      border: 1px solid rgba(244, 114, 182, 0.22);
+      box-sizing: border-box;
+    }
+
+    .cube-face.front  { transform: rotateY(0deg) translateZ(min(36vw, 150px)); }
+    .cube-face.back   { transform: rotateY(180deg) translateZ(min(36vw, 150px)); }
+    .cube-face.right  { transform: rotateY(90deg) translateZ(min(36vw, 150px)); }
+    .cube-face.left   { transform: rotateY(-90deg) translateZ(min(36vw, 150px)); }
+    .cube-face.top    { transform: rotateX(90deg) translateZ(min(36vw, 150px)); }
+    .cube-face.bottom { transform: rotateX(-90deg) translateZ(min(36vw, 150px)); }
+
+    .rubik-tile {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(244, 114, 182, 0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8px;
+      font-size: 10px;
+      line-height: 1.25;
+      font-weight: 700;
+      color: #9d174d;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+    }
+
+    .rubik-tile span {
+      pointer-events: none;
+    }
+
+    .rubik-tile:hover,
+    .rubik-tile.active {
+      background: rgba(252, 231, 243, 0.95);
+      border-color: #ec4899;
+      box-shadow: 0 0 20px rgba(244, 114, 182, 0.35);
+      transform: translateZ(10px);
+    }
+
+    .overview-panel {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      min-height: 440px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 32px rgba(236, 72, 153, 0.12);
+      opacity: 0.45;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+
+    .overview-panel.is-live {
+      opacity: 1;
+    }
+
+    .overview-panel.powering-up {
+      animation: pulse-border 1.5s ease-in-out infinite alternate;
+      box-shadow: 0 0 30px rgba(244, 114, 182, 0.18), inset 0 0 15px rgba(244, 114, 182, 0.06);
+    }
+
+    .overview-panel.powering-up::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(255, 255, 255, 0) 50%, rgba(244, 114, 182, 0.05) 50%);
+      background-size: 100% 4px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes pulse-border {
+      0% { border-color: rgba(244, 114, 182, 0.25); }
+      100% { border-color: rgba(236, 72, 153, 0.55); }
+    }
+
+    #rubik-detail-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cube-project-preview-media .project-thumb,
+    .cube-project-preview-media .project-thumb-slider {
+      border-radius: 0;
+      aspect-ratio: 16 / 10;
+      max-height: 168px;
+      border-bottom: 1px solid rgba(244, 114, 182, 0.2);
+    }
+
+    .cube-project-preview-body {
+      padding: 1rem 1.1rem 1.15rem;
+    }
+
+    .overview-panel.is-live .cube-project-preview-title {
+      font-size: 1.125rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .overview-panel.is-live .cube-project-preview-overview {
+      font-size: 0.8125rem;
+      line-height: 1.55;
+      color: #6b7280;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .cube-project-preview-tags .project-tag {
+      font-size: 9px;
+      padding: 2px 7px;
+    }
+
+    .cube-preview-details-btn {
+      margin-top: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #f472b6;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.4rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .cube-preview-details-btn:hover {
+      background: #ec4899;
+      transform: translateY(-1px);
+    }
+
+    .rubik-detail-placeholder {
+      padding: 2rem 1.25rem;
+      text-align: center;
+    }
+
+    .rubik-detail-placeholder p:last-child {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body class="bg-transparent text-on-surface">
+  <svg id="energy-overlay" aria-hidden="true">
+    <g class="line-bundle" id="bundle-0"></g>
+    <g class="line-bundle" id="bundle-1"></g>
+    <g class="line-bundle" id="bundle-2"></g>
+    <g class="line-bundle" id="bundle-3"></g>
+  </svg>
+
+  <main class="cube-workspace" id="rubik-workspace">
+    <div class="cube-column">
+      <div class="scene" id="rubik-scene">
+        <div class="cube" id="rubik-cube">
+          <div class="cube-face front"></div>
+          <div class="cube-face back"></div>
+          <div class="cube-face right"></div>
+          <div class="cube-face left"></div>
+          <div class="cube-face top"></div>
+          <div class="cube-face bottom"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-column">
+      <div class="overview-panel" id="overview-panel">
+        <div id="rubik-detail-inner" class="rubik-detail-placeholder">
+          <p class="font-mono-label text-[11px] uppercase tracking-widest text-primary mb-2">Selected Project</p>
+          <p>Rotate the cube and select a tile to preview a project.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const rubikWorkspace = document.getElementById('rubik-workspace');
+    const rubikCube = document.getElementById('rubik-cube');
+    const rubikScene = document.getElementById('rubik-scene');
+    const rubikDetailInner = document.getElementById('rubik-detail-inner');
+    const overviewPanel = document.getElementById('overview-panel');
+    const bundleGroups = [
+      document.getElementById('bundle-0'),
+      document.getElementById('bundle-1'),
+      document.getElementById('bundle-2'),
+      document.getElementById('bundle-3')
+    ];
+
+    if (!rubikWorkspace || !rubikCube || !window.ProjectsUI || !Array.isArray(window.PROJECTS_DATA)) {
+      // noop
+    } else {
+      const portfolioProjects = window.PROJECTS_DATA.filter(
+        (p) => p.caseStudy && p.links && p.links.caseStudy
+      );
+      const cubeProjects = portfolioProjects.length > 0 ? portfolioProjects : window.PROJECTS_DATA;
+      const faces = ['front', 'back', 'right', 'left', 'top', 'bottom'];
+      const defaultProject = cubeProjects.find((p) => p.featured) || cubeProjects[0];
+      let projectIndex = 0;
+      let activeTile = null;
+      let selectedProject = null;
+      let defaultTile = null;
+
+      let isDraggingCube = false;
+      let dragStartX = 0;
+      let dragStartY = 0;
+      let rotateY = 30;
+      let rotateX = -20;
+      let idleAnimationId = null;
+
+      function tileLabel(project) {
+        return (project.cubeTitle || project.title).toUpperCase();
+      }
+
+      function initBundles() {
+        bundleGroups.forEach((group) => {
+          if (!group) return;
+          group.innerHTML = '';
+          for (let i = 0; i < 4; i += 1) {
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.classList.add('energy-line');
+            if (i === 0) path.classList.add('pulse-path');
+            path.style.animationDelay = `${i * 0.2}s`;
+            group.appendChild(path);
+          }
+        });
+      }
+
+      function setBundlesVisible(visible) {
+        bundleGroups.forEach((group) => {
+          if (!group) return;
+          Array.from(group.children).forEach((path) => {
+            path.style.opacity = visible ? '1' : '0';
+          });
+        });
+      }
+
+      function updateEnergyLines() {
+        if (!activeTile || !overviewPanel) return;
+
+        const stickerRect = activeTile.getBoundingClientRect();
+        const panelRect = overviewPanel.getBoundingClientRect();
+
+        const stickerCorners = [
+          { x: stickerRect.left, y: stickerRect.top },
+          { x: stickerRect.right, y: stickerRect.top },
+          { x: stickerRect.left, y: stickerRect.bottom },
+          { x: stickerRect.right, y: stickerRect.bottom }
+        ];
+
+        const panelCorners = [
+          { x: panelRect.left, y: panelRect.top },
+          { x: panelRect.right, y: panelRect.top },
+          { x: panelRect.left, y: panelRect.bottom },
+          { x: panelRect.right, y: panelRect.bottom }
+        ];
+
+        bundleGroups.forEach((group, groupIndex) => {
+          if (!group) return;
+          const start = stickerCorners[groupIndex];
+          const end = panelCorners[groupIndex];
+          const paths = Array.from(group.children);
+          paths.forEach((path, pathIndex) => {
+            const offset = (pathIndex - 1.5) * 2.5;
+            path.setAttribute(
+              'd',
+              `M ${start.x + offset} ${start.y + offset} L ${end.x + offset} ${end.y + offset}`
+            );
+          });
+        });
+      }
+
+      function scheduleEnergyLineUpdate() {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(updateEnergyLines);
+        });
+      }
+
+      function bindPreviewActions(project) {
+        rubikDetailInner.querySelectorAll('[data-cube-open-case-study]').forEach((btn) => {
+          btn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            window.ProjectsUI.requestCaseStudyOpen(project.slug);
+          });
+        });
+        window.ProjectsUI.initProjectThumbSliders(rubikDetailInner);
+      }
+
+      function selectProject(tile, project) {
+        if (activeTile) activeTile.classList.remove('active');
+        activeTile = tile;
+        selectedProject = project;
+        activeTile.classList.add('active');
+
+        rubikDetailInner.innerHTML = window.ProjectsUI.renderCubeProjectPreview(project);
+        rubikDetailInner.classList.remove('rubik-detail-placeholder');
+        bindPreviewActions(project);
+
+        overviewPanel.classList.add('is-live', 'powering-up');
+        overviewPanel.style.boxShadow = '0 0 50px rgba(244, 114, 182, 0.35)';
+        setTimeout(() => {
+          overviewPanel.style.boxShadow = '';
+        }, 320);
+
+        setBundlesVisible(true);
+        scheduleEnergyLineUpdate();
+      }
+
+      function applyCubeRotation() {
+        rubikCube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      }
+
+      initBundles();
+
+      faces.forEach((faceName) => {
+        const faceElement = rubikCube.querySelector(`.cube-face.${faceName}`);
+        for (let i = 0; i < 4; i += 1) {
+          const project = cubeProjects[projectIndex % cubeProjects.length];
+          projectIndex += 1;
+          const tile = document.createElement('button');
+          tile.type = 'button';
+          tile.className = 'rubik-tile';
+          tile.dataset.slug = project.slug;
+          const label = document.createElement('span');
+          label.textContent = tileLabel(project);
+          tile.appendChild(label);
+          if (project.slug === defaultProject.slug && !defaultTile) {
+            defaultTile = tile;
+          }
+          tile.addEventListener('click', (event) => {
+            event.stopPropagation();
+            selectProject(tile, project);
+          });
+          faceElement.appendChild(tile);
+        }
+      });
+
+      if (defaultTile) {
+        selectProject(defaultTile, defaultProject);
+      }
+
+      rubikScene.addEventListener('mousedown', (event) => {
+        isDraggingCube = true;
+        dragStartX = event.clientX;
+        dragStartY = event.clientY;
+      });
+
+      document.addEventListener('mousemove', (event) => {
+        if (!isDraggingCube) return;
+        rotateY += (event.clientX - dragStartX) * 0.35;
+        rotateX -= (event.clientY - dragStartY) * 0.35;
+        applyCubeRotation();
+        dragStartX = event.clientX;
+        dragStartY = event.clientY;
+        if (activeTile) updateEnergyLines();
+      });
+
+      document.addEventListener('mouseup', () => {
+        isDraggingCube = false;
+      });
+
+      rubikScene.addEventListener('touchstart', (event) => {
+        isDraggingCube = true;
+        dragStartX = event.touches[0].clientX;
+        dragStartY = event.touches[0].clientY;
+      }, { passive: true });
+
+      document.addEventListener('touchmove', (event) => {
+        if (!isDraggingCube) return;
+        rotateY += (event.touches[0].clientX - dragStartX) * 0.35;
+        rotateX -= (event.touches[0].clientY - dragStartY) * 0.35;
+        applyCubeRotation();
+        dragStartX = event.touches[0].clientX;
+        dragStartY = event.touches[0].clientY;
+        if (activeTile) updateEnergyLines();
+      }, { passive: true });
+
+      document.addEventListener('touchend', () => {
+        isDraggingCube = false;
+      });
+
+      function idleRotate() {
+        if (!document.hidden && !isDraggingCube) {
+          rotateY += 0.05;
+          applyCubeRotation();
+          if (activeTile) updateEnergyLines();
+        }
+        idleAnimationId = requestAnimationFrame(idleRotate);
+      }
+
+      const rubikVisibilityObserver = new IntersectionObserver((entries) => {
+        const visible = Boolean(entries[0] && entries[0].isIntersecting);
+        if (visible && idleAnimationId === null) {
+          idleAnimationId = requestAnimationFrame(idleRotate);
+        }
+        if (!visible && idleAnimationId !== null) {
+          cancelAnimationFrame(idleAnimationId);
+          idleAnimationId = null;
+        }
+      }, { threshold: 0.1 });
+      rubikVisibilityObserver.observe(rubikScene);
+
+      window.addEventListener('resize', () => {
+        if (activeTile) scheduleEnergyLineUpdate();
+      });
+
+      if (window.ResizeObserver && overviewPanel) {
+        const energyLayoutObserver = new ResizeObserver(() => {
+          if (activeTile) updateEnergyLines();
+        });
+        energyLayoutObserver.observe(overviewPanel);
+        energyLayoutObserver.observe(rubikDetailInner);
+      }
+
+      applyCubeRotation();
+      idleAnimationId = requestAnimationFrame(idleRotate);
+    }
+  </script>
+</body>
+</html>

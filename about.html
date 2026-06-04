@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>About | Cheilou Marie Puro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="theme.css" rel="stylesheet"/>
+  <script src="theme.js"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary/20">
+
+<nav class="glass-nav sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm" id="navbar">
+  <div class="flex justify-between items-center w-full px-5 md:px-margin-mobile max-w-[1120px] mx-auto h-16">
+    <a href="index.html" class="font-headline-sm text-headline-sm font-bold text-on-surface">CHEILOU</a>
+    <div class="hidden md:flex gap-8 items-center">
+      <a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md uppercase" href="index.html">Home</a>
+      <a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-md font-label-md uppercase" href="about.html">About</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md uppercase" href="projects.html">Projects</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md uppercase" href="contact.html">Contact</a>
+      <a href="#" class="bg-primary-container text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md uppercase hover:shadow-card-hover transition-all active:scale-95">Resume</a>
+    </div>
+    <button type="button" id="menu-btn" class="md:hidden text-on-surface p-2" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden flex-col gap-4 px-5 py-4 border-t border-outline-variant/30 glass-nav">
+    <a class="text-on-surface-variant text-label-md font-label-md uppercase" href="index.html">Home</a>
+    <a class="text-primary font-bold text-label-md font-label-md uppercase" href="about.html">About</a>
+    <a class="text-on-surface-variant text-label-md font-label-md uppercase" href="projects.html">Projects</a>
+    <a class="text-on-surface-variant text-label-md font-label-md uppercase" href="contact.html">Contact</a>
+    <a href="#" class="bg-primary-container text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md text-center uppercase">Resume</a>
+  </div>
+</nav>
+
+<main class="pt-8" id="about">
+  <div class="max-w-[1120px] mx-auto px-5 md:px-margin-mobile py-16 md:py-section-gap space-y-20 md:space-y-28">
+
+    <!-- 2.1 Personal Introduction -->
+    <section>
+      <h1 class="font-headline-md text-headline-md text-on-surface mb-8">About Me</h1>
+      <blockquote class="border-l-4 border-primary pl-6 mb-8">
+        <p class="text-body-lg text-on-surface-variant leading-relaxed italic">
+          I'm a full-stack web developer passionate about creating data-driven solutions that empower businesses and users. With experience spanning frontend UI/UX, RESTful APIs, machine learning integration, and database design, I build complete systems from concept to deployment.
+        </p>
+      </blockquote>
+      <div class="flex flex-wrap gap-3">
+        <span class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/30 text-body-md font-medium">
+          <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+          Problem-solver mindset
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/30 text-body-md font-medium">
+          <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">visibility</span>
+          Attention to detail
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/30 text-body-md font-medium">
+          <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+          Continuous learner
+        </span>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 2.2 Technical Stack -->
+  <section class="bg-surface-container-lowest py-16 md:py-section-gap" id="technical-stack">
+    <div class="max-w-[1120px] mx-auto px-5 md:px-margin-mobile">
+      <div class="text-center mb-10 space-y-4">
+        <h2 class="font-headline-md text-headline-md text-on-surface">Technical Stack</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">
+          Languages, frameworks, and tools I use to build full-stack, data-driven web applications—from UI to APIs, databases, and ML integration.
+        </p>
+      </div>
+
+      <!-- Category filters -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12" role="tablist" aria-label="Technical stack categories">
+        <button type="button" class="stack-filter active px-5 py-2.5 rounded-full border border-outline-variant/40 bg-surface text-on-surface font-label-md text-label-md uppercase tracking-wider transition-all duration-200 hover:border-primary/30" data-filter="frontend" role="tab" aria-selected="true">Frontend</button>
+        <button type="button" class="stack-filter px-5 py-2.5 rounded-full border border-outline-variant/40 bg-surface text-on-surface-variant font-label-md text-label-md uppercase tracking-wider transition-all duration-200 hover:border-primary/30" data-filter="backend" role="tab" aria-selected="false">Backend</button>
+        <button type="button" class="stack-filter px-5 py-2.5 rounded-full border border-outline-variant/40 bg-surface text-on-surface-variant font-label-md text-label-md uppercase tracking-wider transition-all duration-200 hover:border-primary/30" data-filter="database" role="tab" aria-selected="false">Database</button>
+        <button type="button" class="stack-filter px-5 py-2.5 rounded-full border border-outline-variant/40 bg-surface text-on-surface-variant font-label-md text-label-md uppercase tracking-wider transition-all duration-200 hover:border-primary/30" data-filter="aiml" role="tab" aria-selected="false">AI / ML</button>
+        <button type="button" class="stack-filter px-5 py-2.5 rounded-full border border-outline-variant/40 bg-surface text-on-surface-variant font-label-md text-label-md uppercase tracking-wider transition-all duration-200 hover:border-primary/30" data-filter="devops" role="tab" aria-selected="false">DevOps</button>
+      </div>
+
+      <!-- Frontend -->
+      <div class="stack-panel" data-category="frontend" role="tabpanel">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 text-center md:text-left">Frontend Technologies</h3>
+        <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-8 text-center md:text-left">Frameworks, styling, UI libraries &amp; build tools</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">deployed_code</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">React 18</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">route</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">React Router</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">palette</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">CSS3</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">html</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">HTML5</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">bar_chart</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">Recharts</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">bolt</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">Vite</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">inventory_2</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">npm</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">sync_alt</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">Axios</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="stack-panel hidden" data-category="backend" role="tabpanel">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 text-center md:text-left">Backend Technologies</h3>
+        <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-8 text-center md:text-left">Frameworks &amp; server-side capabilities</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">terminal</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">Flask</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">speed</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">FastAPI</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">dns</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">PHP</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-8 border-l-2 border-primary bg-surface shadow-sm rounded-r-xl">
+            <div class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2">Authentication</div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">JWT-based authentication, password hashing</p>
+          </div>
+          <div class="p-8 border-l-2 border-primary bg-surface shadow-sm rounded-r-xl">
+            <div class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2">APIs</div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">RESTful API design, CORS handling, role-based access control (RBAC)</p>
+          </div>
+          <div class="p-8 border-l-2 border-primary bg-surface shadow-sm rounded-r-xl">
+            <div class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2">Real-time</div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">In-app messaging systems</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Database -->
+      <div class="stack-panel hidden" data-category="database" role="tabpanel">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 text-center md:text-left">Database &amp; Data</h3>
+        <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-8 text-center md:text-left">Storage, analysis &amp; visualization</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">database</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">SQLite</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">storage</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">MySQL</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">table_chart</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">Pandas</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">calculate</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">NumPy</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+        </div>
+        <div class="p-8 border-l-2 border-primary bg-surface shadow-sm rounded-r-xl">
+          <div class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2">Data Visualization</div>
+          <p class="text-on-surface-variant text-body-md">Recharts, custom analytics dashboards</p>
+        </div>
+      </div>
+
+      <!-- AI / ML -->
+      <div class="stack-panel hidden" data-category="aiml" role="tabpanel">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 text-center md:text-left">AI / ML &amp; Specialized</h3>
+        <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-8 text-center md:text-left">Machine learning, AI integration &amp; desktop</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
+          <div class="tech-card bg-primary-container border border-primary/20 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md group text-on-primary">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300">psychology</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center">OpenRouter</span>
+            <div class="h-1 w-0 bg-on-primary/40 transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">desktop_windows</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">Tkinter</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+        </div>
+        <p class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Machine Learning</p>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-8 border-l-2 border-primary bg-surface shadow-sm rounded-r-xl">
+            <p class="text-on-surface-variant text-sm leading-relaxed">VADER Sentiment Analysis (Natural Language Processing)</p>
+          </div>
+          <div class="p-8 border-l-2 border-primary bg-surface shadow-sm rounded-r-xl">
+            <p class="text-on-surface-variant text-sm leading-relaxed">Naive Bayes Classification</p>
+          </div>
+          <div class="p-8 border-l-2 border-primary bg-surface shadow-sm rounded-r-xl">
+            <p class="text-on-surface-variant text-sm leading-relaxed">Data forecasting (Simple Exponential Smoothing — SES)</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mt-8">
+          <div class="p-8 border-l-2 border-primary bg-surface shadow-sm rounded-r-xl">
+            <div class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2">AI Integration</div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">OpenRouter API for LLM-powered features</p>
+          </div>
+          <div class="p-8 border-l-2 border-primary bg-surface shadow-sm rounded-r-xl">
+            <div class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2">Desktop Applications</div>
+            <p class="text-on-surface-variant text-sm leading-relaxed">Tkinter (Python GUI)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DevOps -->
+      <div class="stack-panel hidden" data-category="devops" role="tabpanel">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 text-center md:text-left">DevOps &amp; Tools</h3>
+        <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-8 text-center md:text-left">Version control, containers &amp; environment</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">account_tree</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">Git</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">code</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">GitHub</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">deployed_code</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface">Docker</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+          <div class="tech-card bg-surface border border-outline-variant/40 p-6 md:p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-md hover:border-primary/30 group">
+            <span class="material-symbols-outlined text-4xl tech-icon transition-transform duration-300 text-on-surface-variant">layers</span>
+            <span class="font-label-md text-label-md uppercase tracking-wider text-center text-on-surface text-xs leading-tight">Docker Compose</span>
+            <div class="h-1 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </div>
+        </div>
+        <div class="p-8 border-l-2 border-primary bg-surface shadow-sm rounded-r-xl">
+          <div class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2">Environment Management</div>
+          <p class="text-on-surface-variant text-body-md">.env configuration, pip/npm package management</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-[1120px] mx-auto px-5 md:px-margin-mobile py-16 md:py-section-gap space-y-20 md:space-y-28">
+
+    <!-- 2.3 Certifications & Continuous Learning -->
+    <section>
+      <h2 class="font-headline-md text-headline-md text-primary mb-8">Certifications &amp; Continuous Learning</h2>
+      <h3 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">E-Certificates from Webinars</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-10">
+        <div class="flex items-center gap-4 p-4 border border-outline-variant/30 rounded-lg bg-surface">
+          <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-primary">cloud</span>
+          </div>
+          <div>
+            <p class="text-label-md font-bold text-on-surface">Cloud Computing</p>
+            <p class="text-label-sm text-on-surface-variant">Webinar E-Certificate</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 p-4 border border-outline-variant/30 rounded-lg bg-surface">
+          <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+          </div>
+          <div>
+            <p class="text-label-md font-bold text-on-surface">Blockchain Technology</p>
+            <p class="text-label-sm text-on-surface-variant">Webinar E-Certificate</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 p-4 border border-outline-variant/30 rounded-lg bg-surface">
+          <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-primary">code</span>
+          </div>
+          <div>
+            <p class="text-label-md font-bold text-on-surface">Web Development</p>
+            <p class="text-label-sm text-on-surface-variant">Webinar E-Certificate</p>
+          </div>
+        </div>
+      </div>
+      <a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md hover:underline mb-10" href="https://github.com/cheilo-puro/e-certificates-webinars" target="_blank" rel="noopener noreferrer">
+        <span class="material-symbols-outlined text-[20px]">folder_open</span>
+        View e-certificates-webinars repository
+        <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+      </a>
+      <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/30">
+        <h3 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Skills in Development</h3>
+        <ul class="space-y-3 text-body-md text-on-surface-variant">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">radio_button_checked</span>
+            Exploring advanced React patterns
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">radio_button_checked</span>
+            Deepening ML model optimization
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2.4 Education -->
+    <section>
+      <h2 class="font-headline-md text-headline-md text-primary mb-8">Education</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+        <div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-primary">school</span>
+            </div>
+            <div>
+              <p class="text-label-md font-bold text-on-surface">University Degree</p>
+              <p class="text-body-md text-on-surface-variant mt-1">Bachelor of Science in Computer Science</p>
+              <p class="text-label-sm text-on-surface-variant mt-1">Expected graduation — update year</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/30">
+          <h3 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Relevant Coursework</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-chip px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant">Database Design</span>
+            <span class="skill-chip px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant">Software Engineering</span>
+            <span class="skill-chip px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant">Data Structures</span>
+            <span class="skill-chip px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant">Web Development</span>
+          </div>
+        </div>
+        <div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30">
+          <h3 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">Self-Directed Learning</h3>
+          <p class="text-body-md text-on-surface-variant leading-relaxed">
+            Online courses, documentation study, and project-based learning — building production-ready apps, integrating ML pipelines, and shipping full-stack features end to end outside the classroom.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="bg-surface">
+  <div class="flex flex-col md:flex-row justify-between items-center w-full py-12 px-5 md:px-margin-mobile max-w-[1120px] mx-auto gap-gutter">
+    <div class="font-label-md text-label-md font-bold text-on-surface">CHEILOU</div>
+    <p class="text-body-md text-on-surface-variant">© 2024 Cheilou Marie Puro. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md underline" href="#">GitHub</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md underline" href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  });
+
+  // Technical stack category tabs
+  const stackFilters = document.querySelectorAll('.stack-filter');
+  const stackPanels = document.querySelectorAll('.stack-panel');
+
+  stackFilters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const category = btn.getAttribute('data-filter');
+
+      stackFilters.forEach((b) => {
+        b.classList.remove('active');
+        b.classList.add('text-on-surface-variant');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.classList.remove('text-on-surface-variant');
+      btn.setAttribute('aria-selected', 'true');
+
+      stackPanels.forEach((panel) => {
+        const match = panel.getAttribute('data-category') === category;
+        panel.classList.toggle('hidden', !match);
+      });
+    });
+  });
+</script>
+</body>
+</html>

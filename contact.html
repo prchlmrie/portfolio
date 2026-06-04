@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Contact | Cheilou Marie Puro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="theme.css" rel="stylesheet"/>
+  <script src="theme.js"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style>
+    .filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    * { box-sizing: border-box; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease both; }
+    .d1{animation-delay:0.05s}.d2{animation-delay:0.15s}.d3{animation-delay:0.25s}.d4{animation-delay:0.35s}.d5{animation-delay:0.45s}
+    .nav-link {
+      position: relative; color: #434656; font-size: 15px; font-weight: 500;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-link::after {
+      content:''; position:absolute; bottom:-4px; left:0;
+      width:0; height:2px; background:#0041c8; transition:width 0.25s;
+    }
+    .nav-link:hover { color:#0041c8; }
+    .nav-link:hover::after, .nav-link.active::after { width:100%; }
+    .nav-link.active { color:#0041c8; }
+    .btn-primary {
+      display:inline-flex;align-items:center;gap:8px;background:#0055ff;color:#fff;
+      font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;
+      letter-spacing:0.04em;padding:8px 18px;border-radius:10px;border:none;
+      cursor:pointer;text-decoration:none;
+      transition:background 0.2s,box-shadow 0.2s;
+      box-shadow:0 2px 8px rgba(0,65,200,0.25);
+    }
+    .btn-primary:hover { background:#0041c8; box-shadow:0 10px 30px rgba(0,85,255,0.08); }
+    .form-label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: #434656; margin-bottom: 8px;
+    }
+    .form-input {
+      width: 100%; padding: 12px 0;
+      border: none; border-bottom: 1.5px solid #c3c5d9; border-radius: 0;
+      background: transparent; color: #1a1c1f;
+      font-family: 'Inter', sans-serif; font-size: 15px;
+      outline: none; transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-input:focus {
+      border-bottom-width: 2px;
+      border-color: #0041c8;
+    }
+    .form-input::placeholder { color: #737688; }
+    textarea.form-input { resize: vertical; min-height: 140px; line-height: 1.6; }
+    .submit-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #0055ff; color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+      padding: 14px 28px; border-radius: 12px; border: none;
+      cursor: pointer; width: 100%;
+      justify-content: center;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+      box-shadow: 0 4px 16px rgba(0,65,200,0.25);
+    }
+    .submit-btn:hover {
+      background: #0041c8;
+      box-shadow: 0 10px 30px rgba(0,85,255,0.08);
+      transform: translateY(-1px);
+    }
+    .submit-btn:active { transform: translateY(0); }
+    .contact-link-card {
+      display: flex; align-items: center; gap: 16px;
+      padding: 18px 20px; background: #fff;
+      border: 1px solid #e2e2e6; border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      text-decoration: none; color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .contact-link-card:hover {
+      border-color: rgba(0,65,200,0.25);
+      box-shadow: 0 10px 30px rgba(0,85,255,0.08);
+      transform: translateX(4px);
+    }
+    .contact-icon-box {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: #dce1ff;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .avail-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #22c55e; display: inline-block;
+      animation: pulse-green 2s ease-in-out infinite;
+    }
+    @keyframes pulse-green {
+      0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.3); }
+      50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+    }
+    .success-msg {
+      display: none;
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 12px;
+      padding: 16px 20px;
+      color: #166534;
+      font-size: 14px;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary/20">
+
+<nav class="glass-nav sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm" id="navbar">
+  <div class="flex justify-between items-center w-full px-5 md:px-margin-mobile max-w-[1120px] mx-auto h-16">
+    <a href="index.html" class="font-headline-sm text-headline-sm font-bold text-on-surface">CHEILOU</a>
+    <div class="hidden md:flex gap-8 items-center">
+      <a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md uppercase" href="index.html">Home</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md uppercase" href="about.html">About</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md uppercase" href="projects.html">Projects</a>
+      <a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-md font-label-md uppercase" href="contact.html">Contact</a>
+      <a href="#" class="bg-primary-container text-on-primary px-6 py-2 rounded-lg text-label-md font-label-md uppercase hover:shadow-card-hover transition-all active:scale-95">Resume</a>
+    </div>
+    <button type="button" id="menu-btn" class="md:hidden text-on-surface p-2" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden flex-col gap-4 px-5 py-4 border-t border-outline-variant/30 glass-nav">
+    <a class="text-on-surface-variant text-label-md font-label-md uppercase" href="index.html">Home</a>
+    <a class="text-on-surface-variant text-label-md font-label-md uppercase" href="about.html">About</a>
+    <a class="text-on-surface-variant text-label-md font-label-md uppercase" href="projects.html">Projects</a>
+    <a class="text-primary font-bold text-label-md font-label-md uppercase" href="contact.html">Contact</a>
+    <a href="#" class="bg-primary-container text-on-primary px-6 py-2 rounded-lg text-label-md font-label-md text-center uppercase">Resume</a>
+  </div>
+</nav>
+
+<main class="pt-8 pb-24 min-h-screen">
+  <div style="max-width:1120px;margin:0 auto;padding:0 20px;">
+
+    <!-- Header -->
+    <div style="padding-top:56px;margin-bottom:56px;">
+      <span class="fade-up d1" style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:#0041c8;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">Get In Touch</span>
+      <h1 class="fade-up d2" style="font-family:'Hanken Grotesk',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;color:#1a1c1f;">
+        Let's build something <span style="color:#0041c8;">together.</span>
+      </h1>
+      <p class="fade-up d3" style="font-size:17px;line-height:1.7;color:#434656;max-width:520px;margin:0;">
+        Open to internships, research collaborations, and interesting ML projects. Don't hesitate to reach out — I usually respond within 24 hours.
+      </p>
+    </div>
+
+    <!-- Two-column layout -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:start;">
+
+      <!-- LEFT: Contact form -->
+      <div class="fade-up d3">
+        <div style="background:#fff;border:1px solid #e8e8ec;border-radius:20px;padding:36px;">
+          <h2 style="font-family:'Hanken Grotesk',sans-serif;font-size:20px;font-weight:700;margin:0 0 28px;color:#1a1c1f;">Send a Message</h2>
+
+          <div id="success-msg" class="success-msg">
+            <span class="material-symbols-outlined filled" style="color:#22c55e;font-size:20px;">check_circle</span>
+            Message sent! I'll get back to you soon.
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:20px;" id="contact-form">
+            <div>
+              <label class="form-label">Your Name</label>
+              <input type="text" class="form-input" id="f-name" placeholder="e.g. Maria Santos"/>
+            </div>
+            <div>
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" id="f-email" placeholder="you@example.com"/>
+            </div>
+            <div>
+              <label class="form-label">Subject</label>
+              <input type="text" class="form-input" id="f-subject" placeholder="Internship opportunity, collaboration..."/>
+            </div>
+            <div>
+              <label class="form-label">Message</label>
+              <textarea class="form-input" id="f-message" placeholder="Tell me about your project or opportunity..."></textarea>
+            </div>
+            <div id="form-error" style="display:none;color:#ba1a1a;font-size:13px;font-family:'JetBrains Mono',monospace;"></div>
+            <button type="button" class="submit-btn" onclick="handleSubmit()">
+              <span class="material-symbols-outlined" style="font-size:20px;">send</span>
+              Send Message
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Info -->
+      <div class="fade-up d4" style="display:flex;flex-direction:column;gap:32px;">
+
+        <!-- Availability badge -->
+        <div style="background:#fff;border:1px solid #e8e8ec;border-radius:16px;padding:24px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span class="avail-dot"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:#166534;letter-spacing:0.04em;text-transform:uppercase;">Available for Opportunities</span>
+          </div>
+          <p style="font-size:15px;color:#434656;line-height:1.6;margin:0;">Currently looking for <strong style="color:#1a1c1f;">ML internships</strong> and <strong style="color:#1a1c1f;">research collaborations</strong> starting mid-2025.</p>
+        </div>
+
+        <!-- Contact links -->
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:#737688;margin:0 0 4px;">Find me on</p>
+
+          <a href="mailto:cheilou@example.com" class="contact-link-card">
+            <div class="contact-icon-box">
+              <span class="material-symbols-outlined" style="color:#0041c8;">mail</span>
+            </div>
+            <div>
+              <p style="font-weight:600;font-size:14px;margin:0 0 2px;color:#1a1c1f;">Email</p>
+              <p style="font-size:13px;color:#737688;margin:0;">cheilou@example.com</p>
+            </div>
+            <span class="material-symbols-outlined" style="margin-left:auto;color:#c3c5d9;font-size:18px;">arrow_forward</span>
+          </a>
+
+          <a href="https://linkedin.com" target="_blank" class="contact-link-card">
+            <div class="contact-icon-box">
+              <span class="material-symbols-outlined" style="color:#0041c8;">person</span>
+            </div>
+            <div>
+              <p style="font-weight:600;font-size:14px;margin:0 0 2px;color:#1a1c1f;">LinkedIn</p>
+              <p style="font-size:13px;color:#737688;margin:0;">linkedin.com/in/cheilo-puro</p>
+            </div>
+            <span class="material-symbols-outlined" style="margin-left:auto;color:#c3c5d9;font-size:18px;">arrow_forward</span>
+          </a>
+
+          <a href="https://github.com" target="_blank" class="contact-link-card">
+            <div class="contact-icon-box">
+              <span class="material-symbols-outlined" style="color:#0041c8;">terminal</span>
+            </div>
+            <div>
+              <p style="font-weight:600;font-size:14px;margin:0 0 2px;color:#1a1c1f;">GitHub</p>
+              <p style="font-size:13px;color:#737688;margin:0;">github.com/cheilo-puro</p>
+            </div>
+            <span class="material-symbols-outlined" style="margin-left:auto;color:#c3c5d9;font-size:18px;">arrow_forward</span>
+          </a>
+
+          <a href="#" class="contact-link-card">
+            <div class="contact-icon-box">
+              <span class="material-symbols-outlined" style="color:#0041c8;">school</span>
+            </div>
+            <div>
+              <p style="font-weight:600;font-size:14px;margin:0 0 2px;color:#1a1c1f;">Google Scholar</p>
+              <p style="font-size:13px;color:#737688;margin:0;">Research publications</p>
+            </div>
+            <span class="material-symbols-outlined" style="margin-left:auto;color:#c3c5d9;font-size:18px;">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Response time note -->
+        <div style="display:flex;align-items:center;gap:10px;padding:16px;background:#eeedf2;border-radius:12px;">
+          <span class="material-symbols-outlined" style="color:#0041c8;font-size:20px;flex-shrink:0;">schedule</span>
+          <p style="font-size:13px;color:#434656;margin:0;line-height:1.5;">I typically respond within <strong style="color:#1a1c1f;">24 hours</strong> on weekdays. For urgent matters, LinkedIn DM is fastest.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="bg-surface">
+  <div class="flex flex-col md:flex-row justify-between items-center w-full py-12 px-5 md:px-margin-mobile max-w-[1120px] mx-auto gap-6">
+    <div class="font-label-md text-label-md font-bold text-on-surface">CHEILOU</div>
+    <p class="text-body-md text-on-surface-variant">© 2024 Cheilou Marie Puro. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md underline" href="#">GitHub</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md underline" href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  });
+
+  function handleSubmit() {
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const subject = document.getElementById('f-subject').value.trim();
+    const message = document.getElementById('f-message').value.trim();
+    const errEl = document.getElementById('form-error');
+
+    if (!name || !email || !subject || !message) {
+      errEl.textContent = 'Please fill in all fields before sending.';
+      errEl.style.display = 'block';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = 'Please enter a valid email address.';
+      errEl.style.display = 'block';
+      return;
+    }
+    errEl.style.display = 'none';
+
+    // Show success (in real use, connect to a form backend like Formspree)
+    document.getElementById('contact-form').style.display = 'none';
+    const s = document.getElementById('success-msg');
+    s.style.display = 'flex';
+  }
+</script>
+</body>
+</html>
