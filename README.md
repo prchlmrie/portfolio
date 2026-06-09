@@ -70,7 +70,7 @@ Flutter, Expo, React Native
 
 ## Full technology inventory
 
-The portfolio data file (`tech-stack-data.js`) also tracks additional tools that are not shown on the site because they do not have a matching logo in the icon set:
+The portfolio data file (`js/tech-stack-data.js`) also tracks additional tools that are not shown on the site because they do not have a matching logo in the icon set:
 
 | Category | Additional technologies (not shown on site) |
 |----------|---------------------------------------------|
@@ -91,16 +91,31 @@ The portfolio data file (`tech-stack-data.js`) also tracks additional tools that
 
 | Path | Description |
 |------|-------------|
-| `index.html` | Main portfolio page |
+| `index.html` | Main portfolio page (single-page site) |
 | `projects.html` | Full projects listing |
-| `featured-projects-data.js` | Featured Projects section data (template → swap for real projects) |
-| `projects-cube.html` | 3D project cube (reserved for use elsewhere; not used on Projects section) |
-| `projects-data.js` | Project metadata and case study content |
-| `projects-ui.js` | Project cards rendering and case study modal |
-| `tech-stack-data.js` | Technical stack categories and icon map |
-| `theme.css` / `theme.js` | Shared styling and Tailwind theme |
-| `images/` | Profile photos and certificate images |
+| `css/theme.css` | Shared styles |
+| `js/theme.js` | Tailwind theme config |
+| `js/projects-data.js` | Project metadata and case study content |
+| `js/featured-projects-data.js` | Featured Projects section data |
+| `js/projects-ui.js` | Project cards rendering and case study modal |
+| `js/tech-stack-data.js` | Technical stack categories and icon map |
+| `images/` | Profile photos, certificates, and project screenshots |
+| `pages/about.html` | Legacy standalone About page (older layout) |
+| `pages/contact.html` | Legacy standalone Contact page (older layout) |
+| `pages/projects-cube.html` | 3D project cube experiment |
 
 ## Local preview
 
-Open `index.html` in a browser, or serve the folder with any static file server.
+Open `index.html` in a browser, or serve the folder with any static file server:
+
+```bash
+npx serve .
+```
+
+## GitHub Pages
+
+1. Push this repo to GitHub.
+2. Go to **Settings → Pages** and set the source to the `main` branch (root `/`).
+3. Your site will be live at `https://<username>.github.io/<repo>/` (or `https://<username>.github.io/` if the repo is named `<username>.github.io`).
+
+`index.html` stays at the repository root so GitHub Pages serves it as the homepage.
