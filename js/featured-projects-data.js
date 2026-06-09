@@ -45,8 +45,8 @@ window.FEATURED_PROJECTS = [
       }
     ],
     links: {
-      demo: "#",
-      repo: "#"
+      demo: "https://trendpulse-web.onrender.com/",
+      repo: "https://github.com/prchlmrie/trend-pulse"
     }
   },
   {
@@ -78,8 +78,7 @@ window.FEATURED_PROJECTS = [
       }
     ],
     links: {
-      demo: "#",
-      repo: "#"
+      repo: "https://github.com/prchlmrie/pirates-way-finder"
     }
   },
   {
@@ -101,8 +100,8 @@ window.FEATURED_PROJECTS = [
       { name: "Hack", icon: "simple-icons:hack", color: "#878787" }
     ],
     links: {
-      demo: "#",
-      repo: "#"
+      demo: "https://ether-flow-beta.vercel.app",
+      repo: "https://github.com/prchlmrie/ether-flow"
     }
   }
 ];
