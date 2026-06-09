@@ -368,23 +368,121 @@
     .about-blog-image.is-active {
       opacity: 1;
     }
-    .certificate-card {
-      width: 100%;
+    .cert-major-label {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #f9a8d4;
+      background: rgba(244, 114, 182, 0.12);
+      border: 1px solid rgba(244, 114, 182, 0.35);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+    .cert-featured {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .cert-featured-card {
+      width: min(100%, 280px);
       transform-origin: center center;
-      border: 2px solid rgba(244, 114, 182, 0.35);
-      box-shadow: 0 0 0 1px rgba(244, 114, 182, 0.12);
+      border: 2px solid rgba(244, 114, 182, 0.45);
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #1c1b1b;
+      box-shadow: 0 12px 36px rgba(244, 114, 182, 0.18);
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
-    .certificate-card:hover {
-      transform: scale(1.80) translateY(-8px);
-      border-color: rgba(244, 114, 182, 0.65);
-      box-shadow: 0 12px 32px rgba(244, 114, 182, 0.22), 0 0 0 1px rgba(244, 114, 182, 0.2);
+    .cert-featured-card:hover {
+      transform: scale(1.06) translateY(-6px);
+      border-color: rgba(244, 114, 182, 0.75);
+      box-shadow: 0 18px 44px rgba(244, 114, 182, 0.28);
     }
-    .certificate-card img {
+    .cert-featured-card img {
       display: block;
       width: 100%;
       height: auto;
-      max-width: 100%;
+      padding: 1.25rem;
+      object-fit: contain;
+      background: #141418;
+    }
+    .cert-featured-title {
+      margin: 1rem 0 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #e5e2e1;
+    }
+    .cert-featured-provider {
+      margin: 0.25rem 0 0;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+    .cert-grid-heading {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .cert-minor-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (min-width: 640px) {
+      .cert-minor-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .cert-minor-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .cert-minor-item {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+    }
+    .cert-minor-thumb {
+      width: 100%;
+      transform-origin: center center;
+      border: 2px solid rgba(244, 114, 182, 0.35);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(244, 114, 182, 0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .cert-minor-item:hover .cert-minor-thumb {
+      transform: scale(1.8) translateY(-8px);
+      border-color: rgba(244, 114, 182, 0.65);
+      box-shadow: 0 12px 32px rgba(244, 114, 182, 0.22), 0 0 0 1px rgba(244, 114, 182, 0.2);
+    }
+    .cert-minor-thumb img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .cert-minor-title {
+      margin: 0.75rem 0 0.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #e5e2e1;
+      line-height: 1.35;
+    }
+    .cert-minor-provider {
+      margin: 0;
+      font-size: 0.75rem;
+      color: #9ca3af;
     }
     .about-speech-bubble {
       position: relative;
@@ -772,12 +870,12 @@
       <a class="nav-item text-accent text-sm font-medium" href="#home" data-section="home">Home</a>
       <a class="nav-item text-on-surface-variant hover:text-accent transition-colors text-sm font-medium" href="#about" data-section="about">About Me</a>
       <a class="nav-item text-on-surface-variant hover:text-accent transition-colors text-sm font-medium" href="#projects" data-section="projects">Projects</a>
-      <a class="nav-item text-on-surface-variant hover:text-accent transition-colors text-sm font-medium" href="#blog" data-section="blog">Blog</a>
+      <a class="nav-item text-on-surface-variant hover:text-accent transition-colors text-sm font-medium" href="blog.html">Blog</a>
       <a class="nav-item text-on-surface-variant hover:text-accent transition-colors text-sm font-medium" href="#contact" data-section="contact">Contact</a>
     </nav>
 
     <div class="flex items-center gap-3 justify-self-end">
-      <a class="hidden sm:inline-flex border border-outline hover:border-accent text-on-surface-variant hover:text-accent transition-all px-5 py-2 rounded text-sm font-medium" href="#">Download CV</a>
+      <a class="hidden sm:inline-flex border border-outline hover:border-accent text-on-surface-variant hover:text-accent transition-all px-5 py-2 rounded text-sm font-medium" href="images/CheilouPuro_CV.pdf" target="_blank" rel="noopener noreferrer" download>Download CV</a>
       <button type="button" id="menu-btn" class="md:hidden text-on-surface p-2" aria-label="Open menu">
         <span class="material-symbols-outlined">menu</span>
       </button>
@@ -789,9 +887,9 @@
   <a class="mobile-nav text-accent text-sm font-medium" href="#home">Home</a>
   <a class="mobile-nav text-on-surface-variant text-sm font-medium" href="#about">About Me</a>
   <a class="mobile-nav text-on-surface-variant text-sm font-medium" href="#projects">Projects</a>
-  <a class="mobile-nav text-on-surface-variant text-sm font-medium" href="#blog">Blog</a>
+  <a class="mobile-nav text-on-surface-variant text-sm font-medium" href="blog.html">Blog</a>
   <a class="mobile-nav text-on-surface-variant text-sm font-medium" href="#contact">Contact</a>
-  <a class="border border-outline hover:border-accent px-5 py-2 rounded text-sm font-medium text-center text-on-surface-variant hover:text-accent" href="#">Download CV</a>
+  <a class="border border-outline hover:border-accent px-5 py-2 rounded text-sm font-medium text-center text-on-surface-variant hover:text-accent" href="images/CheilouPuro_CV.pdf" target="_blank" rel="noopener noreferrer" download>Download CV</a>
 </div>
 
 <!-- HOME -->
@@ -882,9 +980,9 @@
     
       </div>
       <div class="lg:col-span-5">
-        <a href="#blog" class="group block relative rounded-2xl overflow-hidden border-2 border-accent/40 bg-surface shadow-[0_12px_36px_rgba(244,114,182,0.22)] hover:shadow-[0_18px_48px_rgba(236,72,153,0.35)] transition-all duration-300 hover:-translate-y-1 hover:border-accent h-64 md:h-[320px] ring-4 ring-accent/10">
-          <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&q=80" alt="Blog preview card one" class="about-blog-image is-active w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"/>
-          <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80" alt="Blog preview card two" class="about-blog-image w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"/>
+        <a href="blog.html" class="group block relative rounded-2xl overflow-hidden border-2 border-accent/40 bg-surface shadow-[0_12px_36px_rgba(244,114,182,0.22)] hover:shadow-[0_18px_48px_rgba(236,72,153,0.35)] transition-all duration-300 hover:-translate-y-1 hover:border-accent h-64 md:h-[320px] ring-4 ring-accent/10">
+          <img src="images/blog/techfest/1.jpg" alt="Tech Fest AI Hackathon journal preview" class="about-blog-image is-active w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"/>
+          <img src="images/blog/isiteAIhackathon/1.jpg" alt="iSite AI Hackathon journal preview" class="about-blog-image w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"/>
           <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/65 to-transparent">
             <p class="text-white text-sm font-mono-label uppercase tracking-wider">Read the blog</p>
           </div>
@@ -953,32 +1051,64 @@
       <p class="font-mono-label text-xs uppercase tracking-[0.2em] text-primary">Credentials</p>
       <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight hero-title">Certificates</h2>
       <p class="text-on-surface-variant max-w-2xl mx-auto">
-        Hover to preview and click any certificate to open its full link in a new tab.
+        Featured major certification plus supporting credentials from Harvard, Cisco, and more. Click to view the official certificate.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-      <a href="https://certificates.cs50.io/52481940-6eaa-473e-90b8-f9c91d16395f.pdf?size=letter" target="_blank" rel="noopener noreferrer" class="certificate-card block rounded-xl overflow-hidden bg-surface">
-        <img src="images/certificates/CS50x.jpg" width="21429" height="2579" alt="CS50x Certificate"/>
+    <div class="cert-featured">
+      <span class="cert-major-label">Major Certification</span>
+      <a href="https://www.credly.com/badges/b24cedbc-0f12-432f-8082-94ccd4e6c886/public_url" target="_blank" rel="noopener noreferrer" class="cert-featured-card block">
+        <img src="images/certificates/database.png" width="300" height="300" alt="IT Specialist – Databases badge"/>
+        <p class="cert-featured-title px-4 pb-4">IT Specialist – Databases</p>
+        <p class="cert-featured-provider px-4 pb-4 -mt-2">Certiport / Pearson</p>
       </a>
-      <a href="https://certificates.cs50.io/ed5c4dd3-94f4-4b95-bf8d-0cc55b0d2803.pdf?size=letter" target="_blank" rel="noopener noreferrer" class="certificate-card block rounded-xl overflow-hidden bg-surface">
-        <img src="images/certificates/CS50P.jpg" width="21429" height="2579" alt="CS50 Python Certificate"/>
+    </div>
+
+    <p class="cert-grid-heading">Minor Certifications</p>
+
+    <div class="cert-minor-grid">
+      <a href="https://certificates.cs50.io/52481940-6eaa-473e-90b8-f9c91d16395f.pdf?size=letter" target="_blank" rel="noopener noreferrer" class="cert-minor-item">
+        <div class="cert-minor-thumb">
+          <img src="images/certificates/CS50x.jpg" width="21429" height="2579" alt="CS50x Certificate"/>
+        </div>
+        <p class="cert-minor-title">CS50x — Introduction to Computer Science</p>
+        <p class="cert-minor-provider">Harvard University</p>
       </a>
-      <a href="https://certificates.cs50.io/fe90bbfa-c204-44f0-84fa-393911d44adf.pdf?size=letter" target="_blank" rel="noopener noreferrer" class="certificate-card block rounded-xl overflow-hidden bg-surface">
-        <img src="images/certificates/CS50SQL.jpg" width="1650" height="1275" alt="CS50 SQL Certificate"/>
+      <a href="https://certificates.cs50.io/ed5c4dd3-94f4-4b95-bf8d-0cc55b0d2803.pdf?size=letter" target="_blank" rel="noopener noreferrer" class="cert-minor-item">
+        <div class="cert-minor-thumb">
+          <img src="images/certificates/CS50P.jpg" width="21429" height="2579" alt="CS50 Python Certificate"/>
+        </div>
+        <p class="cert-minor-title">CS50P — Introduction to Programming with Python</p>
+        <p class="cert-minor-provider">Harvard University</p>
       </a>
-      <a href="https://www.credly.com/badges/89f7f847-4315-4c59-a063-2311cb659640/public_url" target="_blank" rel="noopener noreferrer" class="certificate-card block rounded-xl overflow-hidden bg-surface">
-        <img src="images/certificates/CISCO1.jpg" width="1650" height="1275" alt="Cisco Certificate"/>
+      <a href="https://certificates.cs50.io/fe90bbfa-c204-44f0-84fa-393911d44adf.pdf?size=letter" target="_blank" rel="noopener noreferrer" class="cert-minor-item">
+        <div class="cert-minor-thumb">
+          <img src="images/certificates/CS50SQL.jpg" width="1650" height="1275" alt="CS50 SQL Certificate"/>
+        </div>
+        <p class="cert-minor-title">CS50 SQL — Databases with SQL</p>
+        <p class="cert-minor-provider">Harvard University</p>
       </a>
-      <a href="https://www.credly.com/badges/7a67dabb-89c4-4787-9c8d-d4c0b9ae334b/public_url" target="_blank" rel="noopener noreferrer" class="certificate-card block rounded-xl overflow-hidden bg-surface">
-        <img src="images/certificates/CISCO2.jpg" width="1650" height="1275" alt="Cisco Certificate 2"/>
+      <a href="https://www.credly.com/badges/89f7f847-4315-4c59-a063-2311cb659640/public_url" target="_blank" rel="noopener noreferrer" class="cert-minor-item">
+        <div class="cert-minor-thumb">
+          <img src="images/certificates/CISCO1.jpg" width="1650" height="1275" alt="Python Essentials 1 Certificate"/>
+        </div>
+        <p class="cert-minor-title">Python Essentials 1</p>
+        <p class="cert-minor-provider">Cisco × Python Institute</p>
       </a>
-      <div class="certificate-card block rounded-xl overflow-hidden bg-surface">
-        <img src="images/certificates/MSTCONNECT.jpg" width="1754" height="1241" alt="MST Connect Certificate"/>
+      <a href="https://www.credly.com/badges/7a67dabb-89c4-4787-9c8d-d4c0b9ae334b/public_url" target="_blank" rel="noopener noreferrer" class="cert-minor-item">
+        <div class="cert-minor-thumb">
+          <img src="images/certificates/CISCO2.jpg" width="1650" height="1275" alt="Python Essentials 2 Certificate"/>
+        </div>
+        <p class="cert-minor-title">Python Essentials 2</p>
+        <p class="cert-minor-provider">Cisco × Python Institute</p>
+      </a>
+      <div class="cert-minor-item">
+        <div class="cert-minor-thumb">
+          <img src="images/certificates/MSTCONNECT.jpg" width="1754" height="1241" alt="MST Connect Certificate"/>
+        </div>
+        <p class="cert-minor-title">MST Connect Certification</p>
+        <p class="cert-minor-provider">MST Connect</p>
       </div>
-      <a href="https://www.credly.com/badges/b24cedbc-0f12-432f-8082-94ccd4e6c886/public_url" target="_blank" rel="noopener noreferrer" class="certificate-card block rounded-xl overflow-hidden bg-surface">
-        <img src="images/certificates/database.png" width="300" height="300" alt="Database Certificate"/>
-      </a>
     </div>
   </div>
 </section>
