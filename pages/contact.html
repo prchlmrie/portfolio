@@ -164,34 +164,35 @@
         <div style="background:#fff;border:1px solid #e8e8ec;border-radius:20px;padding:36px;">
           <h2 style="font-family:'Hanken Grotesk',sans-serif;font-size:20px;font-weight:700;margin:0 0 28px;color:#1a1c1f;">Send a Message</h2>
 
-          <div id="success-msg" class="success-msg">
+          <div id="success-msg" data-contact-success hidden class="success-msg" data-display-mode="flex" role="status">
             <span class="material-symbols-outlined filled" style="color:#22c55e;font-size:20px;">check_circle</span>
             Message sent! I'll get back to you soon.
           </div>
 
-          <div style="display:flex;flex-direction:column;gap:20px;" id="contact-form">
+          <form data-contact-form data-hide-on-success="true" style="display:flex;flex-direction:column;gap:20px;" id="contact-form">
+            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"/>
             <div>
-              <label class="form-label">Your Name</label>
-              <input type="text" class="form-input" id="f-name" placeholder="e.g. Maria Santos"/>
+              <label class="form-label" for="f-name">Your Name</label>
+              <input type="text" class="form-input" id="f-name" name="name" required placeholder="e.g. Maria Santos"/>
             </div>
             <div>
-              <label class="form-label">Email Address</label>
-              <input type="email" class="form-input" id="f-email" placeholder="you@example.com"/>
+              <label class="form-label" for="f-email">Email Address</label>
+              <input type="email" class="form-input" id="f-email" name="email" required placeholder="you@example.com"/>
             </div>
             <div>
-              <label class="form-label">Subject</label>
-              <input type="text" class="form-input" id="f-subject" placeholder="Internship opportunity, collaboration..."/>
+              <label class="form-label" for="f-subject">Subject</label>
+              <input type="text" class="form-input" id="f-subject" name="subject" placeholder="Internship opportunity, collaboration..."/>
             </div>
             <div>
-              <label class="form-label">Message</label>
-              <textarea class="form-input" id="f-message" placeholder="Tell me about your project or opportunity..."></textarea>
+              <label class="form-label" for="f-message">Message</label>
+              <textarea class="form-input" id="f-message" name="message" required placeholder="Tell me about your project or opportunity..."></textarea>
             </div>
-            <div id="form-error" style="display:none;color:#ba1a1a;font-size:13px;font-family:'JetBrains Mono',monospace;"></div>
-            <button type="button" class="submit-btn" onclick="handleSubmit()">
+            <div id="form-error" data-contact-error hidden data-display-mode="block" style="display:none;color:#ba1a1a;font-size:13px;font-family:'JetBrains Mono',monospace;" role="alert"></div>
+            <button type="submit" data-loading-label="Sending…" class="submit-btn">
               <span class="material-symbols-outlined" style="font-size:20px;">send</span>
               Send Message
             </button>
-          </div>
+          </form>
         </div>
       </div>
 
@@ -211,35 +212,35 @@
         <div style="display:flex;flex-direction:column;gap:12px;">
           <p style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:#737688;margin:0 0 4px;">Find me on</p>
 
-          <a href="mailto:cheilou@example.com" class="contact-link-card">
+          <a href="mailto:cheilou.dev@gmail.com" class="contact-link-card">
             <div class="contact-icon-box">
               <span class="material-symbols-outlined" style="color:#0041c8;">mail</span>
             </div>
             <div>
               <p style="font-weight:600;font-size:14px;margin:0 0 2px;color:#1a1c1f;">Email</p>
-              <p style="font-size:13px;color:#737688;margin:0;">cheilou@example.com</p>
+              <p style="font-size:13px;color:#737688;margin:0;">cheilou.dev@gmail.com</p>
             </div>
             <span class="material-symbols-outlined" style="margin-left:auto;color:#c3c5d9;font-size:18px;">arrow_forward</span>
           </a>
 
-          <a href="https://linkedin.com" target="_blank" class="contact-link-card">
+          <a href="https://www.linkedin.com/in/cheilou" target="_blank" rel="noopener noreferrer" class="contact-link-card">
             <div class="contact-icon-box">
               <span class="material-symbols-outlined" style="color:#0041c8;">person</span>
             </div>
             <div>
               <p style="font-weight:600;font-size:14px;margin:0 0 2px;color:#1a1c1f;">LinkedIn</p>
-              <p style="font-size:13px;color:#737688;margin:0;">linkedin.com/in/cheilo-puro</p>
+              <p style="font-size:13px;color:#737688;margin:0;">linkedin.com/in/cheilou</p>
             </div>
             <span class="material-symbols-outlined" style="margin-left:auto;color:#c3c5d9;font-size:18px;">arrow_forward</span>
           </a>
 
-          <a href="https://github.com" target="_blank" class="contact-link-card">
+          <a href="https://github.com/prchlmrie" target="_blank" rel="noopener noreferrer" class="contact-link-card">
             <div class="contact-icon-box">
               <span class="material-symbols-outlined" style="color:#0041c8;">terminal</span>
             </div>
             <div>
               <p style="font-weight:600;font-size:14px;margin:0 0 2px;color:#1a1c1f;">GitHub</p>
-              <p style="font-size:13px;color:#737688;margin:0;">github.com/cheilo-puro</p>
+              <p style="font-size:13px;color:#737688;margin:0;">github.com/prchlmrie</p>
             </div>
             <span class="material-symbols-outlined" style="margin-left:auto;color:#c3c5d9;font-size:18px;">arrow_forward</span>
           </a>
@@ -285,30 +286,8 @@
     mobileMenu.classList.toggle('flex');
   });
 
-  function handleSubmit() {
-    const name = document.getElementById('f-name').value.trim();
-    const email = document.getElementById('f-email').value.trim();
-    const subject = document.getElementById('f-subject').value.trim();
-    const message = document.getElementById('f-message').value.trim();
-    const errEl = document.getElementById('form-error');
-
-    if (!name || !email || !subject || !message) {
-      errEl.textContent = 'Please fill in all fields before sending.';
-      errEl.style.display = 'block';
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errEl.textContent = 'Please enter a valid email address.';
-      errEl.style.display = 'block';
-      return;
-    }
-    errEl.style.display = 'none';
-
-    // Show success (in real use, connect to a form backend like Formspree)
-    document.getElementById('contact-form').style.display = 'none';
-    const s = document.getElementById('success-msg');
-    s.style.display = 'flex';
-  }
 </script>
+<script src="../js/contact-config.js"></script>
+<script src="../js/contact-form.js"></script>
 </body>
 </html>

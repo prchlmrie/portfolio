@@ -1316,3 +1316,58 @@ body.case-study-open {
     margin-right: auto;
   }
 }
+
+/* Contact — social links */
+.contact-social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem 0.875rem;
+  border-radius: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-social-link:hover {
+  border-color: rgba(244, 114, 182, 0.35);
+  background: rgba(244, 114, 182, 0.06);
+}
+
+.contact-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--social-color, #e5e2e1);
+}
+
+/* Contact form — override Tailwind forms plugin (defaults to light inputs on dark site) */
+#contact-form .contact-field,
+#contact-form input:not([type="checkbox"]),
+#contact-form textarea {
+  color: #e5e2e1;
+  background-color: #2a2a2a;
+  border-color: rgba(255, 255, 255, 0.12);
+  caret-color: #f472b6;
+}
+
+#contact-form .contact-field::placeholder,
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: #9ca3af;
+}
+
+#contact-form .contact-field:focus,
+#contact-form input:not([type="checkbox"]):focus,
+#contact-form textarea:focus {
+  color: #e5e2e1;
+  background-color: #2a2a2a;
+  border-color: #f472b6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(244, 114, 182, 0.25);
+}
